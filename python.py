@@ -1,9 +1,9 @@
 import os
 import sys
-import cx_Oracle
+#import cx_Oracle
 from flask import Flask, render_template, request, jsonify, flash, redirect, session
 import codecs
-import mysql.connector as sql;
+#import mysql.connector as sql;
 import csv
 import hashlib
 
