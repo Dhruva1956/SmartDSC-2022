@@ -1,0 +1,1 @@
+npm i body-parser path http express mysql crypto express-session pg ejs
