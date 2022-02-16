@@ -76,7 +76,7 @@ app = Flask(__name__)
 # Display a welcome message on the 'home' page
 @app.route('/')
 def index():
-	return render_template ('blog/index.html', title = "SMART DSC-2022");
+	return render_template ('blog/index.html', title = "SMARTDSC-2022");
 	#return "Welcome to the demo app"
 
 # Add a new username
