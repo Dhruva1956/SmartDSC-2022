@@ -46,7 +46,7 @@ stages:
         pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
-      python app.py
+      
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'
