@@ -13,11 +13,6 @@ body {
   color: #0d142e;
 }
 
-div {
-  text-align: justify;
-  text-justify: inter-word;
-}
-
 a {
   color: #dec463;
   text-decoration: none;
