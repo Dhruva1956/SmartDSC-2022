@@ -49,6 +49,283 @@
   <link href="static/style.css" rel="stylesheet">
 
   <!-- flip links-->
+  <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+
+.r-title{
+  margin-top: var(--rTitleMarginTop, 0) !important;
+  margin-bottom: var(--rTitleMarginBottom, 0) !important;
+}
+
+
+p:not([class]){
+  line-height: var(--cssTypographyLineHeight, 1.78);
+  margin-top: var(--cssTypographyBasicMargin, 1em);
+  margin-bottom: 0;
+}
+
+p:not([class]):first-child{
+  margin-top: 0;
+}
+
+/*
+text component
+*/
+
+.text{
+  display: var(--textDisplay, inline-flex);
+  font-size: var(--textFontSize, 1rem);  
+}
+
+/*
+time component
+*/
+
+/*
+core styles
+*/
+
+.time{
+  display: var(--timeDisplay, inline-flex);
+}
+
+/*
+extensions
+*/
+
+.time__month{
+  margin-left: var(--timelineMounthMarginLeft, .25em);
+}
+
+/*
+skin
+*/
+
+.time{
+  padding: var(--timePadding, .25rem 1.25rem .25rem);
+  background-color: var(--timeBackgroundColor, #FFFFFF);
+
+  font-size: var(--timeFontSize, .75rem);
+  font-weight: var(--timeFontWeight, 700);
+  text-transform: var(--timeTextTransform, uppercase);
+  color: var(--timeColor, currentColor);
+}
+
+/*
+card component
+*/
+
+/*
+core styles
+*/
+
+.card{
+  padding: var(--timelineCardPadding, 1.5rem 1.5rem 1.25rem);
+}
+
+.card__content{
+  margin-top: var(--cardContentMarginTop, .5rem);
+}
+
+/*
+skin
+*/
+
+.card{
+  border-radius: var(--timelineCardBorderRadius, 2px);
+  border-left: var(--timelineCardBorderLeftWidth, 3px) solid var(--timelineCardBorderLeftColor, var(--uiTimelineMainColor));
+  box-shadow: var(--timelineCardBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
+  background-color: var(--timelineCardBackgroundColor, #f0f0f0);
+}
+
+/*
+extensions
+*/
+
+.card__title{
+  --rTitleMarginTop: var(--cardTitleMarginTop, 1rem);
+  font-size: var(--cardTitleFontSize, 1.25rem);
+}
+
+/*
+=====
+CORE STYLES
+=====
+*/
+
+.timeline{
+  display: var(--timelineDisplay, grid);
+  grid-row-gap: var(--timelineGroupsGap, 2rem);
+}
+
+/*
+1. If timeline__year isn't displaed the gap between it and timeline__cards isn't displayed too
+*/
+
+.timeline__year{
+  margin-bottom: 1.25rem; /* 1 */
+}
+
+.timeline__cards{
+  display: var(--timeloneCardsDisplay, grid);
+  grid-row-gap: var(--timeloneCardsGap, 1.5rem);
+}
+
+
+/*
+=====
+SKIN
+=====
+*/
+
+.timeline{
+  --uiTimelineMainColor: var(--timelineMainColor, #222);
+  --uiTimelineSecondaryColor: var(--timelineSecondaryColor, #f0f0f0);
+
+  border-left: var(--timelineLineWidth, 3px) solid var(--timelineLineBackgroundColor, var(--uiTimelineMainColor));
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.timeline__year{
+  --timePadding: var(--timelineYearPadding, .5rem 1.5rem);
+  --timeColor: var(--uiTimelineSecondaryColor);
+  --timeBackgroundColor: var(--uiTimelineMainColor);
+  --timeFontWeight: var(--timelineYearFontWeight, 400);
+}
+
+.timeline__card{
+  position: relative;
+  margin-left: var(--timelineCardLineGap, 1rem);
+}
+
+/*
+1. Stoping cut box shadow
+*/
+
+.timeline__cards{
+  overflow: hidden;
+  padding-top: .25rem; /* 1 */
+  padding-bottom: .25rem; /* 1 */
+}
+
+.timeline__card::before{
+  content: "";
+  width: 100%;
+  height: var(--timelineCardLineWidth, 2px);
+  background-color: var(--timelineCardLineBackgroundColor, var(--uiTimelineMainColor));
+
+  position: absolute;
+  top: var(--timelineCardLineTop, 1rem);
+  left: -50%;
+  z-index: -1;
+}
+
+/*
+=====
+SETTINGS
+=====
+*/
+/**/
+.timeline{
+  --timelineMainColor: #4557bb;
+}
+
+/*
+=====
+DEMO
+=====
+*/
+
+body{
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  color: #222;
+
+  background-color: #fff;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+p{
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+p:last-child{
+  margin-bottom: 0;
+}
+
+.page{
+  max-width: 47rem;
+  padding: 5rem 2rem 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.substack{
+  border:1px solid #EEE; 
+  background-color: #fff;
+  width: 100%;
+  max-width: 480px;
+  height: 280px;
+  margin: 1rem auto;;
+}
+
+
+.linktr{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(209, 246, 255);
+  padding: 2rem;
+  text-align: center;
+}
+
+.linktr__goal{
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  color: rgb(8, 49, 112);
+  box-shadow: rgb(8 49 112 / 24%) 0px 2px 8px 0px;
+  border-radius: 2rem;
+  padding: .5rem 1.25rem;
+}
+
+.r-link{
+    --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
+    --uirLinkTextColor: var(--rLinkTextColor);
+    --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+
+    display: var(--uirLinkDisplay) !important;
+    color: var(--uirLinkTextColor) !important;
+    text-decoration: var(--uirLinkTextDecoration) !important;
+}
+</style>
+  
+
 
 </head>
 
@@ -71,7 +348,9 @@
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <!--<li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>-->
+          <li><a class="nav-link scrollto" href="#keyd">Key Dates</a></li>
           <li><a class="nav-link scrollto" href="#pricing">Register</a></li>
+          <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
         
           <li><a class="nav-link scrollto" href="#team">Committee</a></li>
           <!--<li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
@@ -169,26 +448,23 @@
 
         <div class="row content" data-aos="fade-up">
           <div class="col-lg-6">
-            <p>
-              Knowledge in engineering sciences is about sharing our ideas of
+            <!--<p>
+              KL University is
+              a great platform to make your Idea(s) penetrated into world.</p>-->
+            <ul>
+              <li><i class="ri-check-double-line"></i>Knowledge in engineering sciences is about sharing our ideas of
               research to others. In engineering, it has many ways to exhibit. In that
               conference is the best way to propose your idea of research and its
               future scope, it is the best way to add energy to build strong and
-              innovative future. So, here we are to give a small support from our side
+              innovative future</li>
+              <li><i class="ri-check-double-line"></i>Here we are to give a small support from our side
               to confer your ideas by an "International Conference on Smart
               Technologies in Data Science And Communication (SmartDSC-2022)".
               Related to Electrical, Electronics, Information Technology and
               Computer Science. It is not confined to a specific topic or region, you
               can exhibit your ideas in similar or mixed or related technologies
               bloomed from anywhere around the world because “An idea can
-              change the future and its implementation can build it”. KL University is
-              a great platform to make your Idea(s) penetrated into world. We give
-              as best as we can in every aspect related. Our environment leads you
-              to a path on your idea, our people will lead your confidence and finally
-              we give our best to make yours. Our intention is to make Intelligence
-              in engineering to fly higher and higher. That is why we are dropping
-              our completeness into event. You can trust us on your confidentiality.</p>
-            <ul>
+              change the future and its implementation can build it”</li>
               <li><i class="ri-check-double-line"></i> KL University is a great platform to make your Idea(s) penetrated into world.</li>
               <li><i class="ri-check-double-line"></i> Our environment leads you to a path on your idea</li>
               <li><i class="ri-check-double-line"></i> our people will lead your confidence and finally we give our best to make yours.</li>
@@ -197,53 +473,11 @@
               <li><i class="ri-check-double-line"></i> You can trust us on your confidentiality.</li>
             </ul>
           </div>
-          <!--<div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              We believe that just because something works doesn't mean it can't be improved and use Design Thinking as a Strategy for Innovation. We work hard to leverage our skills as well as tend to decipher your issues.
-            </p>
-            <a href="#" class="btn-learn-more">Learn More</a>
-          </div>-->
         </div>
 
       </div>
     </section>
     <!-- End About Section -->
-
-<!-- ======= Hero Section ======= -->
-  <!--<section id="hero" class="d-flex align-items-center">
-
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h2>The company comprehensively handles the project needs of the client from concept to installation through support</h2>
-          <div>
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-          </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img src="assets/img/Scorpion_v2.png" class="img-fluid animated" alt="" >
-        </div>
-      </div>
-    </div>
-
-  </section>-->
-  <!-- End Hero -->
-
-  <!-- ======= Hero Section ======= 
-  <section id="hero" class="d-flex align-items-center">
-
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-6 order-1 order-lg-2">
-          <br>
-          <img src="static/img/DTI.jpeg"   alt="" >
-          <h2>By Linda Naiman</h2>
-        </div>
-      </div>
-    </div>
-
-  </section>-->
-    <!-- End Hero -->
 
     <!-- ======= Call for paper Section ======= -->
     <section id="about" class="about">
@@ -259,7 +493,9 @@
             <p>
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i>International Conference on Machine Intelligence and Soft Computing aims to bring together leading research scientists, academicians, researchers and research scholars to exchange and share their experiences and research findings on all aspects of Machine Intelligence and Soft Computing. It also provides a premier interdisciplinary platform for researchers, practitioners and educators to present and discuss the most recent innovations, trends, and concerns as well as practical challenges encountered and solutions adopted in the fields of Machine Intelligence and Soft Computing. This will be purely research oriented conference.
+              <li><i class="ri-check-double-line"></i>International Conference on Smart Technologies in Data Science and Communication aims to bring together leading research scientists, academicians, researchers and research scholars to exchange and share their experiences and research findings on all aspects of Machine Intelligence and Soft Computing. </li>
+              <li><i class="ri-check-double-line"></i>It also provides a premier interdisciplinary platform for researchers, Practitioners and educators to present and discuss the most recent innovations, trends, and concerns as well as practical challenges encountered and solutions adopted in the fields of Data Science and Communication.</li>
+              <li><i class="ri-check-double-line"></i>This will be purely research oriented conference.
               Maximum of 6 pages to be submitted by the Author through Springer OCS</li>
               <li><i class="ri-check-double-line"></i> This is a Call to 
                 submit your paper to SMARTDSC-2022 conference (mvnaresh@kluniversity.in)</li>
@@ -267,22 +503,36 @@
               researchers, students and software professionals.
             </li>
               <li><i class="ri-check-double-line"></i> It also provides a premier interdisciplinary platform for researchers</li>
-              <li><i class="ri-check-double-line"></i> practitioners and educators to present and discuss the most recent innovations, trends, and concerns as well as practical challenges encountered and solutions adopted in the fields of Machine Intelligence and Soft Computing</li>
               <li><i class="ri-check-double-line"></i>This will be purely research oriented conference.</li>
               <li><i class="ri-check-double-line"></i>Maximum of 6 pages to be submitted by the Author through Springer OCS</li>
             </ul>
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <!--<p>
+          <!--<div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
               We believe that just because something works doesn't mean it can't be improved and use Design Thinking as a Strategy for Innovation. We work hard to leverage our skills as well as tend to decipher your issues.
             </p>
-            <a href="#" class="btn-learn-more">Learn More</a>-->
-          </div>
+          </div>-->
         </div>
 
       </div>
     </section>
     <!-- End Call for paper Section -->
+    <!-- ======= Special theme Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-out">
+          <div class="col-lg-9 text-center text-lg-start">
+            <h3>Special Theme: <br>Data Science: Unseen patterns and Decision</h3>
+          </div>
+          <!--<div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#">Call To Action</a>
+          </div>-->
+        </div>
+
+      </div>
+    </section>
+    <!-- Special theme End -->
 
     <!-- ======= Features Section ======= -->
     <section id="features" class="features">
@@ -450,7 +700,7 @@
               <!--<h4 class="title"><a href="https://ocs.springer.com/misc/home/ICMISC2021">To upload formatted Paper through OCS with your registered login</a></h4>-->
               <h4 class="title"><a href="">To upload formatted Paper through OCS with your registered login</a></h4>
               <p class="description">OR</p>
-              <p class="description">Please submit/send your papers electronically to : @gmail.com</p>
+              <p class="description">Please submit/send your papers electronically to : mvnaresh@kluniversity.in</p>
             </div>
           </div>
 
@@ -490,6 +740,189 @@
       </div>
     </section>
     <!-- End Services Section -->
+    <!--LIST-->
+    <div class="content">
+    
+    <div class="container">
+      <h2 class="mb-5"></h2>
+      <div class="section-title" data-aos="zoom-out">
+          <p>Topics</p>
+
+        <table id="customers">
+          <thead>
+            <tr>  
+
+              <!--<th scope="col">
+                <label class="control control--checkbox">
+                  <input type="checkbox"  class="js-check-all"/>
+                  <div class="control__indicator"></div>
+                </label>
+              </th>
+              
+              <th scope="col">Order</th>
+              
+              <th scope="col">Name</th>
+              <th scope="col">Occupation</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Education</th>-->
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Artificial Neural Networks and Fuzzy Logic</td>
+              <td>Optimization Methods and Solutions</td>
+            </tr>
+            <tr>          
+              <td>Cloud Computing</td>
+              <td>Evolutionary Algorithms and Computation</td>
+            </tr>
+            <tr>
+              <td>Machine Learning</td>
+              <td>Hybrid Models and Fuzzy Systems</td>
+            </tr>
+            <tr>
+              <td>Cloud Computing</td>
+              <td>Evolutionary Algorithms and Computation</td>
+            </tr>
+            <tr>
+              <td>Meta Heuristics and Swarm Intelligence</td>
+              <td>Multi-Model Problems and Spatial Distribution</td>
+            </tr>
+            <tr>
+              <td>Neuro Fuzzy System</td>
+              <td>Non-Linear Separation</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>
+    <!--END LIST-->
+
+    <!--MAP-->
+    <section id="keyd" class="keyd">
+      <div class="container">
+    <div class="section-title" data-aos="zoom-out">
+          <p>Key Dates</p>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+  <div class="timeline">
+    <div class="timeline__group">
+
+      <span class="timeline__year time">May 10, 2022</span>
+      <div class="timeline__cards">
+        <div class="timeline__card card">
+          <header class="card__header">
+            <!--<time class="time" datetime="2022-05-10">
+              <span class="time__day">10</span>
+              <span class="time__month">May</span>
+            </time>-->
+            <h3>Paper Submission Deadline.</h3>
+          </header>
+          <!--<div class="card__content">
+            <p>Paper Submission Deadline.</p>
+          </div>-->
+        </div>
+       <!--
+       <div class="timeline__card card">
+          <header class="card__header">
+            <time class="time" datetime="2008-06-05">
+              <span class="time__day">5</span>
+              <span class="time__month">June</span>
+            </time>
+            <h3>Acceptance Notification.</h3>
+          </header>
+           <div class="card__content">
+            <p>Started from University of Pennsylvania. This is an important stage of my career. Here I worked in the local magazine. The experience greatly affected me</p>
+          </div>
+        </div>
+         <div class="timeline__card card">
+          <header class="card__header">
+            <time class="time" datetime="2008-06-15">
+              <span class="time__day">15</span>
+              <span class="time__month">June</span>
+            </time>
+            <h3 class="card__title r-title">Submission Deadline for revised papers</h3>
+          </header>
+           <div class="card__content">
+            <p>Started from University of Pennsylvania. This is an important stage of my career. Here I worked in the local magazine. The experience greatly affected me</p>
+          </div>
+        </div>
+        <div class="timeline__card card">
+          <header class="card__header">
+            <time class="time" datetime="2008-06-25">
+              <span class="time__day">25</span>
+              <span class="time__month">June</span>
+            </time>
+            <h3 class="card__title r-title">Author Registration Deadline</h3>
+          </header>
+          <div class="card__content">
+            <p>Started from University of Pennsylvania. This is an important stage of my career. Here I worked in the local magazine. The experience greatly affected me</p>
+          </div>
+        </div>-->
+      </div>
+    </div>
+    <div class="timeline__group">
+      <span class="timeline__year time" aria-hidden="true">June 5, 2022</span>
+      <div class="timeline__cards">
+        <div class="timeline__card card">
+          <header class="card__header">
+            <!--<time class="time" datetime="2022-06-15">
+              <span class="time__day">15</span>
+              <span class="time__month">June</span>
+            </time>-->
+            <h3>Acceptance Notification.</h3>
+          </header>
+          <!--<div class="card__content">
+            <p>Travels to France, Italy, Spain, and Peru. After completing fashion editorial in Lima, prolongs stay to make portraits of local people in a daylight studio</p>
+          </div>-->
+        </div>
+      </div>
+    </div>
+    <div class="timeline__group">
+      <span class="timeline__year time" aria-hidden="true">June 15, 2022</span>
+      <div class="timeline__cards">
+        <div class="timeline__card card">
+          <header class="card__header">
+            <!--<time class="time" datetime="2008-08-18">
+              <span class="time__day">28</span>
+              <span class="time__month">Aug</span>
+            </time>-->    
+            <h3>Submission deadline for revised papers.</h3>      
+          </header>
+          <!--<div class="card__content">
+            <p>Upon moving to Brooklyn that summer, I began photographing weddings in Chicago</p>
+          </div>-->
+        </div>
+      </div>
+    </div>
+    <div class="timeline__group">
+      <span class="timeline__year time" aria-hidden="true">June 25, 2022</span>
+      <div class="timeline__cards">
+        <div class="timeline__card card">
+          <header class="card__header">
+            <!--<time class="time" datetime="2022-06-15">
+              <span class="time__day">15</span>
+              <span class="time__month">June</span>
+            </time>-->
+            <h3>Author Registration Deadline.</h3>
+          </header>
+          <!--<div class="card__content">
+            <p>Travels to France, Italy, Spain, and Peru. After completing fashion editorial in Lima, prolongs stay to make portraits of local people in a daylight studio</p>
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>    
+</section>
+    <!--END MAP-->
 
     <!-- ======= Portfolio Section ======= -->
    <!-- <section id="portfolio" class="portfolio">
@@ -889,7 +1322,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up">
               <div class="member-img">
-                <img src="static/img/team/user3.png" class="img-fluid" alt="">
+                <img src="static/img/team/pfv.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -907,7 +1340,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="100">
               <div class="member-img">
-                <img src="static/img/team/user3.png" class="img-fluid" alt="">
+                <img src="static/img/team/psk.jfif" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -932,7 +1365,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up">
               <div class="member-img">
-                <img src="static/img/team/user3.png" class="img-fluid" alt="">
+                <img src="static/img/team/db.jpg" class="img-fluid" alt="">
                   <div class="social">
                     <a href=""><i class="bi bi-twitter"></i></a>
                     <a href=""><i class="bi bi-facebook"></i></a>
@@ -950,7 +1383,7 @@
             <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up">
               <div class="member-img">
-                <img src="static/img/team/user3.png" class="img-fluid" alt="">
+                <img src="static/img/team/Sanjoy-Saha.jpg" class="img-fluid" alt="">
                   <div class="social">
                     <a href=""><i class="bi bi-twitter"></i></a>
                     <a href=""><i class="bi bi-facebook"></i></a>
@@ -968,7 +1401,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="100">
               <div class="member-img">
-                <img src="static/img/team/user3.png" class="img-fluid" alt="">
+                <img src="static/img/team/ko.png" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -993,7 +1426,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up">
               <div class="member-img">
-                <img src="static/img/team/user3.png" class="img-fluid" alt="">
+                <img src="static/img/team/pelin-angin.jpg" class="img-fluid" alt="">
                   <div class="social">
                     <a href=""><i class="bi bi-twitter"></i></a>
                     <a href=""><i class="bi bi-facebook"></i></a>
@@ -1011,7 +1444,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="100">
               <div class="member-img">
-                <img src="static/img/team/user3.png" class="img-fluid" alt="">
+                <img src="static/img/team/vs.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -1037,7 +1470,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up">
               <div class="member-img">
-                <img src="static/img/team/user3.png" class="img-fluid" alt="">
+                <img src="static/img/team/Sonia-Djebali.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -1055,7 +1488,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="100">
               <div class="member-img">
-                <img src="static/img/team/user3.png" class="img-fluid" alt="">
+                <img src="static/img/team/pvrd.jfif" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -1080,7 +1513,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up">
               <div class="member-img">
-                <img src="static/img/team/user3.png" class="img-fluid" alt="">
+                <img src="static/img/team/tpk.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -1104,7 +1537,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up">
               <div class="member-img">
-                <img src="static/img/team/user3.png" class="img-fluid" alt="">
+                <img src="static/img/team/vnm.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -1245,7 +1678,7 @@
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>1) +91 984 984 5169</p>
+                <p>+91 984 984 5169</p>
               </div>
 
             </div>
@@ -1317,6 +1750,12 @@
 
   <!-- Template Main JS File -->
   <script src="static/main.js"></script>
+
+  <!--LIST-->
+  <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 
