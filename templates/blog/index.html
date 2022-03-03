@@ -92,323 +92,255 @@ p:not([class]):first-child{
 
 
 
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
+.r-title{
+  margin-top: var(--rTitleMarginTop, 0) !important;
+  margin-bottom: var(--rTitleMarginBottom, 0) !important;
+}
+
+
+p:not([class]){
+  line-height: var(--cssTypographyLineHeight, 1.78);
+  margin-top: var(--cssTypographyBasicMargin, 1em);
+  margin-bottom: 0;
+}
+
+p:not([class]):first-child{
+  margin-top: 0;
+}
+
+/*
+text component
+*/
+
+.text{
+  display: var(--textDisplay, inline-flex);
+  font-size: var(--textFontSize, 1rem);  
+}
+
+/*
+time component
+*/
+
+/*
+core styles
+*/
+
+.time{
+  display: var(--timeDisplay, inline-flex);
+}
+
+/*
+extensions
+*/
+
+.time__month{
+  margin-left: var(--timelineMounthMarginLeft, .25em);
+}
+
+/*
+skin
+*/
+
+.time{
+  padding: var(--timePadding, .25rem 1.25rem .25rem);
+  background-color: var(--timeBackgroundColor, #f0f0f0);
+
+  font-size: var(--timeFontSize, .75rem);
+  font-weight: var(--timeFontWeight, 700);
+  text-transform: var(--timeTextTransform, uppercase);
+  color: var(--timeColor, currentColor);
+}
+
+/*
+card component
+*/
+
+/*
+core styles
+*/
+
+.card{
+  padding: var(--timelineCardPadding, 1.5rem 1.5rem 1.25rem);
+}
+
+.card__content{
+  margin-top: var(--cardContentMarginTop, .5rem);
+}
+
+/*
+skin
+*/
+
+.card{
+  border-radius: var(--timelineCardBorderRadius, 2px);
+  border-left: var(--timelineCardBorderLeftWidth, 3px) solid var(--timelineCardBorderLeftColor, var(--uiTimelineMainColor));
+  box-shadow: var(--timelineCardBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
+  background-color: var(--timelineCardBackgroundColor, #fff);
+}
+
+/*
+extensions
+*/
+
+.card__title{
+  --rTitleMarginTop: var(--cardTitleMarginTop, 1rem);
+  font-size: var(--cardTitleFontSize, 1.25rem);
+}
+
+/*
+=====
+CORE STYLES
+=====
+*/
+
+.timeline{
+  display: var(--timelineDisplay, grid);
+  grid-row-gap: var(--timelineGroupsGap, 2rem);
+}
+
+/*
+1. If timeline__year isn't displaed the gap between it and timeline__cards isn't displayed too
+*/
+
+.timeline__year{
+  margin-bottom: 1.25rem; /* 1 */
+}
+
+.timeline__cards{
+  display: var(--timeloneCardsDisplay, grid);
+  grid-row-gap: var(--timeloneCardsGap, 1.5rem);
+}
+
+
+/*
+=====
+SKIN
+=====
+*/
+
+.timeline{
+  --uiTimelineMainColor: var(--timelineMainColor, #222);
+  --uiTimelineSecondaryColor: var(--timelineSecondaryColor, #fff);
+
+  border-left: var(--timelineLineWidth, 3px) solid var(--timelineLineBackgroundColor, var(--uiTimelineMainColor));
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.timeline__year{
+  --timePadding: var(--timelineYearPadding, .5rem 1.5rem);
+  --timeColor: var(--uiTimelineSecondaryColor);
+  --timeBackgroundColor: var(--uiTimelineMainColor);
+  --timeFontWeight: var(--timelineYearFontWeight, 400);
+}
+
+.timeline__card{
+  position: relative;
+  margin-left: var(--timelineCardLineGap, 1rem);
+}
+
+/*
+1. Stoping cut box shadow
+*/
+
+.timeline__cards{
+  overflow: hidden;
+  padding-top: .25rem; /* 1 */
+  padding-bottom: .25rem; /* 1 */
+  
+}
+
+.timeline__card::before{
+  content: "";
+  width: 100%;
+  height: var(--timelineCardLineWidth, 2px);
+  background-color: var(--timelineCardLineBackgroundColor, var(--uiTimelineMainColor));
+
+  position: absolute;
+  top: var(--timelineCardLineTop, 1rem);
+  left: -50%;
+  z-index: -1;
+}
+
+/*
+=====
+SETTINGS
+=====
+*/
+/**/
+.timeline{
+  --timelineMainColor: #09122b;
+}
+
+/*
+=====
+DEMO
+=====
+*/
 
 body{
-  font-family: 'Raleway', sans-serif;
-  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  color: #222;
+
+  background-color: #fff;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-header h1{
-  text-align: center;
-  font-weight: bold;
+p{
   margin-top: 0;
-}
-  
- header p{
-   text-align: center;
-   margin-bottom: 0;
- }
-
-.hexa{
-  border: 0px;
-  float: left;
-  text-align: center;
-  height: 35px;
-  width: 60px;
-  font-size: 22px;
-  background: #f0f0f0;
-  color: #3c3c3c;
-  position: relative;
-  margin-top: 15px;
+  margin-bottom: 1rem;
+  line-height: 1.5;
 }
 
-.hexa:before{
-  content: ""; 
-  position: absolute; 
-  left: 0; 
-  width: 0; 
-  height: 0;
-  border-bottom: 15px solid #f0f0f0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  top: -15px;
+p:last-child{
+  margin-bottom: 0;
 }
 
-.hexa:after{
-  content: ""; 
-  position: absolute; 
-  left: 0; 
-  width: 0; 
-  height: 0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-top: 15px solid #f0f0f0;
-  bottom: -15px;
+.page{
+  max-width: 47rem;
+  padding: 5rem 2rem 3rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.timeline {
-  position: relative;
-  padding: 0;
+
+.substack{
+  border:1px solid #EEE; 
+  background-color: #fff;
   width: 100%;
-  margin-top: 20px;
-  list-style-type: none;
+  max-width: 480px;
+  height: 280px;
+  margin: 1rem auto;;
 }
 
-.timeline:before {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  content: ' ';
-  display: block;
-  width: 2px;
-  height: 100%;
-  margin-left: -1px;
-  background: rgb(213,213,213);
-  background: -moz-linear-gradient(top, rgba(213,213,213,0) 0%, rgb(213,213,213) 8%, rgb(213,213,213) 92%, rgba(213,213,213,0) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,1)));
-  background: -webkit-linear-gradient(top, rgba(213,213,213,0) 0%, rgb(213,213,213) 8%, rgb(213,213,213) 92%, rgba(213,213,213,0) 100%);
-  background: -o-linear-gradient(top, rgba(213,213,213,0) 0%, rgb(213,213,213) 8%, rgb(213,213,213) 92%, rgba(213,213,213,0) 100%);
-  background: -ms-linear-gradient(top, rgba(213,213,213,0) 0%, rgb(213,213,213) 8%, rgb(213,213,213) 92%, rgba(213,213,213,0) 100%);
-  background: linear-gradient(to bottom, rgba(213,213,213,0) 0%, rgb(213,213,213) 8%, rgb(213,213,213) 92%, rgba(213,213,213,0) 100%);
-  z-index: 5;
-}
 
-.timeline li {
-  padding: 2em 0;
-}
-
-.timeline .hexa{
-  width: 16px;
-  height: 10px;
-  position: absolute;
-  background: #0d142e;
-  z-index: 5;
-  left: 0;
-  right: 0;
-  margin-left:auto;
-  margin-right:auto;
-  top: -30px;
-  margin-top: 0;
-}
-
-.timeline .hexa:before {
-  border-bottom: 4px solid #0d142e;
-  border-left-width: 8px;
-  border-right-width: 8px;
-  top: -4px;
-}
-
-.timeline .hexa:after {
-  border-left-width: 8px;
-  border-right-width: 8px;
-  border-top: 4px solid #0d142e;
-  bottom: -4px;
-}
-
-.direction-l,
-.direction-r {
-  float: none;
-  width: 100%;
+.linktr{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(209, 246, 255);
+  padding: 2rem;
   text-align: center;
 }
 
-.flag-wrapper {
-  text-align: center;
-  position: relative;
+.linktr__goal{
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  color: rgb(8, 49, 112);
+  box-shadow: rgb(8 49 112 / 24%) 0px 2px 8px 0px;
+  border-radius: 2rem;
+  padding: .5rem 1.25rem;
 }
 
-.flag {
-  position: relative;
-  display: inline;
-  background: rgb(255,255,255);
-  font-weight: 600;
-  z-index: 15;
-  padding: 6px 10px;
-  text-align: left;
-  border-radius: 5px;
-}
+.r-link{
+    --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
+    --uirLinkTextColor: var(--rLinkTextColor);
+    --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
 
-.direction-l .flag:after,
-.direction-r .flag:after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -15px;
-  height: 0;
-  width: 0;
-  margin-left: -8px;
-  border: solid transparent;
-  border-bottom-color: rgb(255,255,255);
-  border-width: 8px;
-  pointer-events: none;
-}
-
-.direction-l .flag {
-  -webkit-box-shadow: -1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
-  -moz-box-shadow: -1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
-  box-shadow: -1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
-}
-
-.direction-r .flag {
-  -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
-  -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
-}
-
-.time-wrapper {
-  display: block;
-  position: relative;
-  margin: 4px 0 0 0;
-  z-index: 14;
-  line-height: 1em;
-  vertical-align: middle;
-  color: #fff;
-}
-
-.direction-l .time-wrapper {
-  float: none;
-}
-
-.direction-r .time-wrapper {
-  float: none;
-}
-
-.time {
-  background: #0d142e;
-  display: inline-block;
-  padding: 8px;
-}
-
-.desc {
-  position: relative;
-  margin: 1em 0 0 0;
-  padding: 1em;
-  background: rgb(254,254,254);
-  -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.20);
-  -moz-box-shadow: 0 0 1px rgba(0,0,0,0.20);
-  box-shadow: 0 0 1px rgba(0,0,0,0.20);
-  z-index: 15;
-}
-
-.direction-l .desc,
-.direction-r .desc {
-  position: relative;
-  margin: 1em 1em 0 1em;
-  padding: 1em;
-  z-index: 15;
-}
-
-@media(min-width: 768px){
-  .timeline {
-    width: 660px;
-    margin: 0 auto;
-    margin-top: 20px;
-  }
-
-  .timeline li:after {
-    content: "";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-  }
-  
-  .timeline .hexa {
-    left: -28px;
-    right: auto;
-    top: 8px;
-  }
-
-  .timeline .direction-l .hexa {
-    left: auto;
-    right: -28px;
-  }
-
-  .direction-l {
-    position: relative;
-    width: 310px;
-    float: left;
-    text-align: right;
-  }
-
-  .direction-r {
-    position: relative;
-    width: 310px;
-    float: right;
-    text-align: left;
-  }
-
-  .flag-wrapper {
-    display: inline-block;
-  }
-  
-  .flag {
-    font-size: 18px;
-  }
-
-  .direction-l .flag:after {
-    left: auto;
-    right: -16px;
-    top: 50%;
-    margin-top: -8px;
-    border: solid transparent;
-    border-left-color: rgb(254,254,254);
-    border-width: 8px;
-  }
-
-  .direction-r .flag:after {
-    top: 50%;
-    margin-top: -8px;
-    border: solid transparent;
-    border-right-color: rgb(254,254,254);
-    border-width: 8px;
-    left: -8px;
-  }
-
-  .time-wrapper {
-    display: inline;
-    vertical-align: middle;
-    margin: 0;
-  }
-
-  .direction-l .time-wrapper {
-    float: left;
-  }
-
-  .direction-r .time-wrapper {
-    float: right;
-  }
-
-  .time {
-    padding: 5px 10px;
-  }
-
-  .direction-r .desc {
-    margin: 1em 0 0 0.75em;
-  }
-}
-
-@media(min-width: 992px){
-  .timeline {
-    width: 800px;
-    margin: 0 auto;
-    margin-top: 20px;
-  }
-
-  .direction-l {
-    position: relative;
-    width: 380px;
-    float: left;
-    text-align: right;
-  }
-
-  .direction-r {
-    position: relative;
-    width: 380px;
-    float: right;
-    text-align: left;
-  }
+    display: var(--uirLinkDisplay) !important;
+    color: var(--uirLinkTextColor) !important;
+    text-decoration: var(--uirLinkTextDecoration) !important;
 }
 </style>
   
@@ -478,7 +410,7 @@ header h1{
           <h2>SMARTDSC-2022</h2>
           <h1 style="color:rgba(222,196,99,255);font-size:25px;">FIFTH INTERNATIONAL CONFERENCE ON SMART TECHNOLOGIES IN DATA SCIENCE AND COMMUNICATION</h1>
           <div>
-            <h2 class="btn-get-started scrollto">July 21-22, 2022</h2>
+            <h2>July 21-22, 2022</h2>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
@@ -900,70 +832,137 @@ header h1{
 
     <!--MAP-->
     <section id="keyd" class="keyd">
-    <header>
-    <h1>Key Dates</h1>
-</header>
+      <div class="container">
+    <div class="section-title" data-aos="zoom-out">
+          <p>Key Dates</p>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+  <div class="timeline">
+    <div class="timeline__group">
 
-<ul class="timeline">
-  <!-- Item 1 -->
-  <li>
-    <div class="direction-r">
-      <div class="flag-wrapper">
-        <span class="hexa"></span>
-        <span class="flag">Paper Submission Deadline.</span>
-        <span class="time-wrapper"><span class="time">May 10, 2022</span></span>
-      </div>
-      <!--<div class="desc">Lorem ipsum Nisi labore aute do aute culpa magna nulla voluptate exercitation deserunt proident.</div>-->
-    </div>
-  </li>
+      <!--<span class="timeline__year time">May 10, 2022</span>-->
+      <div class="timeline__cards">
+        <div class="timeline__card card">
+          <header class="card__header">
+            <time class="time" datetime="2022-05-10" style="float: right;">
 
-  <!-- Item 2 -->
-  <li>
-    <div class="direction-l">
-      <div class="flag-wrapper">
-        <span class="hexa"></span>
-        <span class="flag">Acceptance Notification.</span>
-        <span class="time-wrapper"><span class="time">June 5, 2022</span></span>
+              <span class="time__month">May 10, 2022</span>
+            </time>
+            <h3 class="card__title r-title">Paper Submission Deadline.</h3>
+          </header>
+          <!--<div class="card__content">
+            <p>Paper Submission Deadline.</p>
+          </div>-->
+        </div>
+       <!--
+       <div class="timeline__card card">
+          <header class="card__header">
+            <time class="time" datetime="2008-06-05">
+              <span class="time__day">5</span>
+              <span class="time__month">June</span>
+            </time>
+            <h3>Acceptance Notification.</h3>
+          </header>
+           <div class="card__content">
+            <p>Started from University of Pennsylvania. This is an important stage of my career. Here I worked in the local magazine. The experience greatly affected me</p>
+          </div>
+        </div>
+         <div class="timeline__card card">
+          <header class="card__header">
+            <time class="time" datetime="2008-06-15">
+              <span class="time__day">15</span>
+              <span class="time__month">June</span>
+            </time>
+            <h3 class="card__title r-title">Submission Deadline for revised papers</h3>
+          </header>
+           <div class="card__content">
+            <p>Started from University of Pennsylvania. This is an important stage of my career. Here I worked in the local magazine. The experience greatly affected me</p>
+          </div>
+        </div>
+        <div class="timeline__card card">
+          <header class="card__header">
+            <time class="time" datetime="2008-06-25">
+              <span class="time__day">25</span>
+              <span class="time__month">June</span>
+            </time>
+            <h3 class="card__title r-title">Author Registration Deadline</h3>
+          </header>
+          <div class="card__content">
+            <p>Started from University of Pennsylvania. This is an important stage of my career. Here I worked in the local magazine. The experience greatly affected me</p>
+          </div>
+        </div>-->
       </div>
-      <!--<div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim cupidatat laborum dolore.</div>-->
     </div>
-  </li>
-
-  <!-- Item 3 -->
-  <li>
-    <div class="direction-r">
-      <div class="flag-wrapper">
-        <span class="hexa"></span>
-        <span class="flag">Submission deadline for revised papers.</span>
-        <span class="time-wrapper"><span class="time">June 15, 2022</span></span>
+    <div class="timeline__group">
+      <!--<span class="timeline__year time" aria-hidden="true" >June 5, 2022</span>-->
+      <div class="timeline__cards">
+        <div class="timeline__card card">
+          <header class="card__header">
+            <time class="time" datetime="2022-06-15" style="float: right;">
+              <span class="time__month">June 15, 2022</span>
+            </time>
+            <h3 class="card__title r-title">Acceptance Notification.</h3>
+          </header>
+          <!--<div class="card__content">
+            <p>Travels to France, Italy, Spain, and Peru. After completing fashion editorial in Lima, prolongs stay to make portraits of local people in a daylight studio</p>
+          </div>-->
+        </div>
       </div>
-      <!--<div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim cupidatat laborum dolore.</div>-->
     </div>
-  </li>
-  <!-- Item 4 -->
-  <li>
-    <div class="direction-l">
-      <div class="flag-wrapper">
-        <span class="hexa"></span>
-        <span class="flag">Author Registration Deadline.</span>
-        <span class="time-wrapper"><span class="time">June 25, 2022</span></span>
+    <div class="timeline__group">
+      <!--<span class="timeline__year time" aria-hidden="true">June 15, 2022</span>-->
+      <div class="timeline__cards">
+        <div class="timeline__card card">
+          <header class="card__header">
+            <time class="time" datetime="2008-08-18" style="float: right;">
+              <span class="time__month">Aug 28, 2022</span>
+            </time>   
+            <h3 class="card__title r-title">Submission deadline for revised papers.</h3>      
+          </header>
+          <!--<div class="card__content">
+            <p>Upon moving to Brooklyn that summer, I began photographing weddings in Chicago</p>
+          </div>-->
+        </div>
       </div>
-      <!--<div class="desc">Lorem ipsum In ut sit in dolor nisi ex magna eu anim anim tempor dolore aliquip enim cupidatat laborum dolore.</div>-->
     </div>
-  </li>
-  <!-- Item 5 -->
-  <li>
-    <div class="direction-r">
-      <div class="flag-wrapper">
-        <span class="hexa"></span>
-        <span class="flag">Conference Dates.</span>
-        <span class="time-wrapper"><span class="time">July 21-22, 2022</span></span>
+    <div class="timeline__group">
+      <!--<span class="timeline__year time" aria-hidden="true">June 25, 2022</span>-->
+      <div class="timeline__cards">
+        <div class="timeline__card card">
+          <header class="card__header">
+            <time class="time" datetime="2022-06-15" style="float: right;">
+              <span class="time__month">June 15, 2022</span>
+            </time>
+            <h3 class="card__title r-title">Author Registration Deadline.</h3>
+          </header>
+          <!--<div class="card__content">
+            <p>Travels to France, Italy, Spain, and Peru. After completing fashion editorial in Lima, prolongs stay to make portraits of local people in a daylight studio</p>
+          </div>-->
+        </div>
       </div>
-     <!-- <div class="desc">Lorem ipsum Minim labore Ut cupidatat quis qui deserunt proident fugiat pariatur cillum cupidatat reprehenderit sit id dolor consectetur ut.</div>-->
     </div>
-  </li>
-</ul>
+    <div class="timeline__group">
+      <!--<span class="timeline__year time" aria-hidden="true">July 21-22, 2022</span>-->
+      <div class="timeline__cards">
+        <div class="timeline__card card">
+          <header class="card__header">
+            <time class="time" datetime="2022-06-15" style="float: right;">
+              <span class="time__month">July 21-22, 2022</span>
+            </time>
+            <h3 class="card__title r-title">Conference Dates</h3>
+          </header>
+          <!--<div class="card__content">
+            <p>Travels to France, Italy, Spain, and Peru. After completing fashion editorial in Lima, prolongs stay to make portraits of local people in a daylight studio</p>
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>    
 </section>
+    
     <!--END MAP-->
 
     <!-- ======= Portfolio Section ======= -->
@@ -1425,24 +1424,6 @@ header h1{
             </div>
           </div>
 
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up">
-              <div class="member-img">
-                <img src="static/img/team/Sanjoy-Saha.jpg" class="img-fluid" alt="" style="width:350px;height:250px;">
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
-              </div>
-                <div class="member-info">
-                  <h4>Sanjoy Kumar Saha</h4>
-                  <span>Jadavpur University, Kolkata</span>
-                </div>
-            </div>
-          </div>
-
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="100">
               <div class="member-img">
@@ -1457,6 +1438,24 @@ header h1{
                 <div class="member-info">
                   <h4>Kingsley Ogudo</h4>
                   <span>University of Johannesburg, South Africa</span>                
+                </div>
+            </div>
+          </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up">
+              <div class="member-img">
+                <img src="static/img/team/Sanjoy-Saha.jpg" class="img-fluid" alt="" style="width:350px;height:250px;">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+              </div>
+                <div class="member-info">
+                  <h4>Sanjoy Kumar Saha</h4>
+                  <span>Jadavpur University, Kolkata</span>
                 </div>
             </div>
           </div>
