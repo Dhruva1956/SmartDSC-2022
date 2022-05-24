@@ -6,6 +6,7 @@ import codecs
 #import mysql.connector as sql;
 import csv
 import hashlib
+from flask import send_file
 
 def init_session(connection, requestedTag_ignored):
 	cursor = connection.cursor()
@@ -78,6 +79,11 @@ app = Flask(__name__)
 def index():
 	return render_template ('blog/index.html', title = "SMARTDSC-2022");
 	#return "Welcome to the demo app"
+@app.route('/download')
+def downloadFile ():
+    #For windows you need to use drive name [ex: F:/Example.pdf]
+    path = "Smart DSC 2022 Paper Format and Guidelines.zip"
+    return send_file(path, as_attachment=True)
 
 # Add a new username
 #
